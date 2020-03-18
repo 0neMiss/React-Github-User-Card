@@ -1,37 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CardList from './components/CardList'
+import Card from './components/Card';
+import CardList from './components/CardList';
 /*
 to do:
 pass the data from api down through props to the components
 make a fetch request for the data from my followers
 make a map function in cardlist to pass for each iteration of followers
-style and destroy
+style and destroyj
 
 
 */
 class App extends React.Component {
   state = {
-          login: "",
-          avatar_url: "",
-          name: ""
+    followers: [],
+    login: "",
+    avatar_url: "",
+    name: ""
   };
 
   componentDidMount() {
+
     fetch("https://api.github.com/users/0neMiss")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response.avatar_url);
          this.setState({
-           login: data.login,
-           avatar_url: data.avatar_url,
-           name: data.name
+           login: response.login,
+           avatar_url: response.avatar_url,
+           name: response.name
          })
-         console.log(`state ${this.state.login}`);
+
        })
       .catch(err => console.log(err));
-
+    fetch('https://api.github.com/users/0neMiss/followers')
+    .then(response => response.json())
+    .then(response =>{
+      this.setState({
+        followers: response
+      })
+      console.log(`state ${this.state.followers[1].login}`);
+    })
 
   }
 
@@ -40,7 +49,8 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-          <CardList/>
+          <Card login = {this.state.login} avatar_url = {this.state.avatar_url} name = {this.state.name}/>
+          <CardList followers = {this.state.followers}/>
       </div>
     );
   }

@@ -1,10 +1,14 @@
 import React from "react";
 
 const Card = props => {
+  console.log(props.avatar_url);
 
   return (
-    <div>
-      <p>stuff</p>
+    <div className = "main-card">
+      <h3>{props.login}</h3>
+      <div className = "avatar-container"></div>
+      <img className = "main-avatar"src={props.avatar_url}/>
+      <p>{props.name}</p>
     </div>
   );
 };
