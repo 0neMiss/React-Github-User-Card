@@ -7,7 +7,7 @@ import React from "react";
 const FollowerCard = props => {
   return (
     <div className="follower-card">
-    <div className = "follower">{props.login}</div>
+    <div className = "name">{props.login}</div>
     <img className = "follower-img" src = {props.avatar_url}/>
 
     </div>

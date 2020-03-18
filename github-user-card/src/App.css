@@ -3,14 +3,23 @@
   flex-direction: column;
   justify-content: center;
 }
+.name{
+  font-family: 'Martel', serif;
+}
+.login{
+  font-family: 'Dosis', sans-serif;
+
+}
 .follower-container{
+
+  text-align: center;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
    justify-content: center;
   margin: auto;
   width: 50%;
-  border: 2px black;
+  border: 2px solid black;
 }
 .follower-card{
   padding: 20px;
@@ -20,6 +29,9 @@
   max-height: 150px;
 }
 .main-card{
+
+  border: 2px solid black;
+  text-align: center;
   margin: auto;
   width: 50%;
   display: flex;
@@ -27,6 +39,8 @@
 
 }
 .main-avatar{
+  margin: auto;
+  width: 50%;
   max-width: 300px;
   max-height: 300px;
 }
